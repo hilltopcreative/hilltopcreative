@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hilltop Creative Hub | Marketing, Media & Branding — Lubbock, TX</title>
+<meta name="description" content="Hilltop Creative Hub is a creative content and marketing agency based in Lubbock, TX. Strategy, branding, video, social media, ads, and websites.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600;700&family=Barlow+Condensed:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --deep:     #162144;
+  --deep-alt: #111c3a;
+  --mid:      #293c55;
+  --lime:     #c1ff72;
+  --white:    #ffffff;
+  --off:      #f0f4f8;
+  --slate:    #7d8fa3;
+  --slate-lt: #a4b4c4;
+  --border-l: rgba(193,255,114,0.14);
+  --font-body: 'Outfit', sans-serif;
+  --font-ui:   'Barlow Condensed', sans-serif;
+  --font-disp: 'DM Serif Display', serif;
+}
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-body); background: var(--deep); color: var(--white); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+
+/* grain */
+body::after { content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 9999; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.02'/%3E%3C/svg%3E"); }
+
+/* NAV */
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; padding: 1.2rem 3rem; display: flex; justify-content: space-between; align-items: center; background: rgba(22,33,68,0.93); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(193,255,114,0.07); transition: padding 0.3s; }
+nav.scrolled { padding: 0.85rem 3rem; }
+.logo { display: flex; align-items: baseline; line-height: 1; text-decoration: none; gap: 0; }
+.logo-h  { font-family: var(--font-body); font-size: 1.3rem; font-weight: 400; color: var(--lime); }
+.logo-illtop { font-family: var(--font-disp); font-size: 1.3rem; color: var(--white); }
+.logo-ch { font-family: var(--font-ui); font-size: 0.56rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--slate); margin-left: 0.5rem; align-self: flex-end; padding-bottom: 0.15rem; }
+.nav-links { display: flex; align-items: center; gap: 2.5rem; list-style: none; }
+.nav-links a { font-family: var(--font-ui); font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--slate-lt); text-decoration: none; transition: color 0.2s; }
+.nav-links a:hover { color: var(--white); }
+.nav-cta { background: var(--lime) !important; color: var(--deep) !important; padding: 0.55rem 1.3rem !important; transition: background 0.2s !important; }
+.nav-cta:hover { background: var(--white) !important; }
+.nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+.nav-toggle span { display: block; width: 22px; height: 1.5px; background: var(--white); transition: all 0.3s; }
+
+/* HERO */
+.hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: flex-end; padding: 0 3rem 5rem; position: relative; overflow: hidden; }
+.hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 70% 60% at 70% 35%, rgba(41,60,85,0.65) 0%, transparent 65%), radial-gradient(ellipse 40% 50% at 15% 75%, rgba(193,255,114,0.04) 0%, transparent 60%); }
+.hero-img { position: absolute; inset: 0; background-image: url('hero.jpg'); background-size: cover; background-position: center 30%; opacity: 0.22; }
+.hero-scan { position: absolute; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent 0%, rgba(193,255,114,0.2) 40%, rgba(193,255,114,0.45) 50%, rgba(193,255,114,0.2) 60%, transparent 100%); animation: scan 7s ease-in-out infinite; }
+@keyframes scan { 0%,100%{top:10%;opacity:0} 10%{opacity:1} 90%{opacity:1} 50%{top:88%} }
+.hero-location { display: inline-flex; align-items: center; gap: 0.55rem; font-family: var(--font-ui); font-size: 0.67rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--lime); margin-bottom: 1.6rem; animation: fadeUp 0.7s ease both; }
+.hero-location::before { content: ''; width: 16px; height: 2px; background: var(--lime); }
+.hero h1 { font-family: var(--font-disp); font-size: clamp(3rem, 6.5vw, 7rem); font-weight: 400; line-height: 0.95; letter-spacing: -0.025em; max-width: 860px; position: relative; z-index: 1; animation: fadeUp 0.7s 0.08s ease both; }
+.hero h1 em { font-style: italic; color: var(--slate-lt); }
+.hero h1 .hl { color: var(--lime); }
+.hero-sub-row { display: flex; align-items: flex-end; justify-content: space-between; margin-top: 2.5rem; gap: 2rem; flex-wrap: wrap; position: relative; z-index: 1; animation: fadeUp 0.7s 0.16s ease both; }
+.hero-sub { font-size: 1rem; line-height: 1.8; color: var(--slate-lt); max-width: 480px; }
+.hero-sub strong { color: var(--white); font-weight: 500; }
+.hero-actions { display: flex; align-items: center; gap: 1.5rem; margin-top: 2.5rem; position: relative; z-index: 1; animation: fadeUp 0.7s 0.24s ease both; flex-wrap: wrap; }
+.btn-primary { background: var(--lime); color: var(--deep); font-family: var(--font-ui); font-size: 0.8rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 1rem 2.4rem; text-decoration: none; display: inline-block; transition: all 0.2s; }
+.btn-primary:hover { background: var(--white); transform: translateY(-2px); }
+.btn-ghost { font-family: var(--font-ui); font-size: 0.75rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--slate-lt); text-decoration: none; display: flex; align-items: center; gap: 0.4rem; transition: color 0.2s; }
+.btn-ghost:hover { color: var(--lime); }
+
+/* TICKER */
+.ticker-wrap { background: var(--lime); overflow: hidden; padding: 0.65rem 0; }
+.ticker-track { display: inline-flex; animation: ticker 30s linear infinite; }
+@keyframes ticker { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+.ticker-item { display: inline-flex; align-items: center; gap: 1rem; font-family: var(--font-ui); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--deep); padding: 0 2.5rem; white-space: nowrap; }
+.ticker-sep { color: rgba(22,33,68,0.35); }
+
+/* SHARED */
+.eyebrow { display: inline-flex; align-items: center; gap: 0.6rem; font-family: var(--font-ui); font-size: 0.67rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--lime); margin-bottom: 1.1rem; }
+.eyebrow::before { content: ''; display: block; width: 18px; height: 2px; background: var(--lime); flex-shrink: 0; }
+.eyebrow-dark { display: inline-flex; align-items: center; gap: 0.6rem; font-family: var(--font-ui); font-size: 0.67rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--deep); opacity: 0.45; margin-bottom: 1.1rem; }
+.eyebrow-dark::before { content: ''; display: block; width: 18px; height: 2px; background: var(--deep); opacity: 0.45; flex-shrink: 0; }
+.section-title { font-family: var(--font-disp); font-size: clamp(2rem, 3.5vw, 3.4rem); font-weight: 400; line-height: 1.05; letter-spacing: -0.02em; margin-bottom: 1.2rem; }
+.section-title em { font-style: italic; color: var(--slate-lt); }
+.section-title .hl { color: var(--lime); }
+.section-title-dark { font-family: var(--font-disp); font-size: clamp(2rem, 3.5vw, 3.4rem); font-weight: 400; line-height: 1.05; letter-spacing: -0.02em; margin-bottom: 1.2rem; color: var(--deep); }
+.section-title-dark em { font-style: italic; color: var(--mid); }
+.section-body { font-size: 0.97rem; line-height: 1.82; color: var(--slate-lt); }
+.section-body strong { color: var(--white); font-weight: 500; }
+.reveal { opacity: 1; transform: translateY(0); transition: opacity 0.65s ease, transform 0.65s ease; }
+.js-loaded .reveal { opacity: 0; transform: translateY(22px); }
+.js-loaded .reveal.visible { opacity: 1; transform: translateY(0); }
+.rd1{transition-delay:0.1s} .rd2{transition-delay:0.2s} .rd3{transition-delay:0.3s}
+@keyframes fadeUp { from{opacity:0;transform:translateY(18px)} to{opacity:1;transform:translateY(0)} }
+
+/* OFFERS STRIP */
+.offers-section { padding: 5rem 3rem; background: var(--mid); }
+.offers-inner { max-width: 1080px; margin: 0 auto; }
+.offers-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; margin-top: 2.5rem; background: rgba(255,255,255,0.06); }
+.offer-card { background: var(--mid); padding: 2.5rem; border-top: 2px solid transparent; transition: all 0.3s; position: relative; overflow: hidden; }
+.offer-card::after { content: ''; position: absolute; bottom: 0; right: 0; width: 50%; height: 50%; background: radial-gradient(ellipse at 80% 80%, rgba(193,255,114,0.04) 0%, transparent 70%); pointer-events: none; }
+.offer-card:hover { border-top-color: var(--lime); background: rgba(22,33,68,0.4); }
+.offer-tag { font-family: var(--font-ui); font-size: 0.62rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--lime); margin-bottom: 0.6rem; }
+.offer-name { font-family: var(--font-disp); font-size: 1.5rem; color: var(--white); margin-bottom: 0.5rem; line-height: 1.1; }
+.offer-price { font-family: var(--font-ui); font-size: 0.8rem; color: var(--slate-lt); margin-bottom: 1rem; letter-spacing: 0.04em; }
+.offer-desc { font-size: 0.85rem; color: var(--slate-lt); line-height: 1.72; margin-bottom: 1.5rem; }
+.offer-link { font-family: var(--font-ui); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--lime); text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; transition: gap 0.2s; }
+.offer-link:hover { gap: 0.7rem; }
+
+/* SERVICES */
+.services-section { padding: 7rem 3rem; background: var(--deep); }
+.services-inner { max-width: 1080px; margin: 0 auto; }
+.services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; margin-top: 3rem; background: rgba(255,255,255,0.05); }
+.svc-card { background: var(--deep); padding: 2rem 1.8rem; border-top: 2px solid transparent; transition: all 0.3s; }
+.svc-card:hover { background: var(--mid); border-top-color: var(--lime); }
+.svc-icon { width: 36px; height: 36px; margin-bottom: 1.1rem; color: var(--slate); transition: color 0.3s; }
+.svc-card:hover .svc-icon { color: var(--lime); }
+.svc-title { font-family: var(--font-body); font-size: 1rem; font-weight: 500; color: var(--white); margin-bottom: 0.55rem; }
+.svc-body { font-size: 0.8rem; color: var(--slate-lt); line-height: 1.72; }
+
+/* CASE STUDIES */
+.cases-section { padding: 7rem 3rem; background: var(--off); }
+.cases-inner { max-width: 1080px; margin: 0 auto; }
+.cases-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; margin-top: 3rem; background: rgba(22,33,68,0.1); }
+.case-card { background: var(--off); overflow: hidden; position: relative; cursor: pointer; }
+.case-card:hover .case-img { transform: scale(1.04); }
+.case-card:hover .case-overlay { opacity: 1; }
+.case-img-wrap { position: relative; aspect-ratio: 4/3; overflow: hidden; }
+.case-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+.case-overlay { position: absolute; inset: 0; background: rgba(22,33,68,0.75); display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s; }
+.case-view { font-family: var(--font-ui); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--lime); border: 1px solid rgba(193,255,114,0.5); padding: 0.6rem 1.4rem; }
+.case-info { padding: 1.2rem 1.4rem; border-top: 2px solid transparent; transition: border-color 0.3s; background: var(--off); }
+.case-card:hover .case-info { border-top-color: var(--lime); }
+.case-client { font-family: var(--font-body); font-size: 0.95rem; font-weight: 500; color: var(--deep); margin-bottom: 0.2rem; }
+.case-type { font-family: var(--font-ui); font-size: 0.62rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--slate); }
+
+/* TESTIMONIALS */
+.proof-section { padding: 7rem 3rem; background: var(--deep-alt); }
+.proof-inner { max-width: 1080px; margin: 0 auto; }
+.proof-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; margin-top: 3rem; background: rgba(255,255,255,0.05); }
+.proof-card { background: var(--deep-alt); padding: 2.2rem 1.8rem; border-top: 2px solid transparent; transition: border-color 0.3s; }
+.proof-card:hover { border-top-color: rgba(193,255,114,0.35); }
+.q-mark { font-family: var(--font-disp); font-size: 3.5rem; color: rgba(193,255,114,0.1); line-height: 0.8; margin-bottom: 0.9rem; }
+.proof-text { font-size: 0.92rem; line-height: 1.78; color: rgba(255,255,255,0.72); font-style: italic; margin-bottom: 1.4rem; }
+.proof-name { font-family: var(--font-body); font-size: 0.85rem; font-weight: 500; color: var(--white); margin-bottom: 0.15rem; }
+.proof-co { font-family: var(--font-ui); font-size: 0.7rem; color: var(--slate); letter-spacing: 0.06em; }
+
+/* ABOUT */
+.about-section { padding: 7rem 3rem; background: var(--off); }
+.about-inner { max-width: 1080px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+.about-img-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.about-img { width: 100%; aspect-ratio: 3/4; object-fit: cover; }
+.about-img.tall { aspect-ratio: 3/4; grid-row: span 2; }
+.about-body { font-size: 0.97rem; line-height: 1.82; color: rgba(22,33,68,0.72); margin-bottom: 1.2rem; }
+.about-body strong { color: var(--deep); font-weight: 500; }
+.value-list { list-style: none; display: flex; flex-direction: column; gap: 0.85rem; margin: 1.5rem 0 2rem; }
+.value-list li { display: flex; gap: 0.8rem; font-size: 0.87rem; color: rgba(22,33,68,0.72); line-height: 1.6; }
+.v-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--deep); opacity: 0.35; flex-shrink: 0; margin-top: 6px; }
+.value-list li strong { color: var(--deep); font-weight: 500; }
+.team-row { display: flex; gap: 1.5rem; margin-top: 2rem; }
+.team-member { display: flex; align-items: center; gap: 0.75rem; }
+.team-photo { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; border: 2px solid rgba(22,33,68,0.15); }
+.team-name { font-family: var(--font-body); font-size: 0.83rem; font-weight: 500; color: var(--deep); }
+.team-role { font-family: var(--font-ui); font-size: 0.62rem; color: var(--slate); letter-spacing: 0.06em; }
+.btn-dark { background: var(--deep); color: var(--white); font-family: var(--font-ui); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.95rem 2.2rem; text-decoration: none; display: inline-block; transition: background 0.2s; }
+.btn-dark:hover { background: var(--mid); }
+
+/* PROCESS */
+.process-section { padding: 7rem 3rem; background: var(--mid); }
+.process-inner { max-width: 1080px; margin: 0 auto; }
+.process-steps { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1px; margin-top: 3rem; background: rgba(255,255,255,0.06); }
+.proc-step { background: var(--mid); padding: 2rem 1.5rem; text-align: center; transition: background 0.3s; }
+.proc-step:hover { background: rgba(22,33,68,0.5); }
+.proc-num { font-family: var(--font-disp); font-size: 2.5rem; color: rgba(193,255,114,0.15); line-height: 1; margin-bottom: 0.5rem; }
+.proc-title { font-family: var(--font-body); font-size: 0.9rem; font-weight: 500; color: var(--white); }
+
+/* CTA STRIP */
+.cta-section { padding: 8rem 3rem; background: var(--deep-alt); text-align: center; position: relative; overflow: hidden; }
+.cta-section::before { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 65vw; height: 65vw; border-radius: 50%; background: radial-gradient(ellipse, rgba(193,255,114,0.04) 0%, transparent 60%); pointer-events: none; }
+.cta-title { font-family: var(--font-disp); font-size: clamp(2.2rem, 4vw, 4rem); font-weight: 400; line-height: 1.0; letter-spacing: -0.025em; margin-bottom: 1.2rem; position: relative; z-index: 1; }
+.cta-title em { font-style: italic; color: var(--lime); }
+.cta-sub { font-size: 0.97rem; color: var(--slate-lt); max-width: 440px; margin: 0 auto 2.5rem; line-height: 1.78; position: relative; z-index: 1; }
+.cta-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; position: relative; z-index: 1; }
+.btn-outline { background: none; border: 1px solid rgba(255,255,255,0.2); color: var(--white); font-family: var(--font-ui); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.95rem 2rem; text-decoration: none; display: inline-block; transition: all 0.2s; }
+.btn-outline:hover { border-color: var(--lime); color: var(--lime); }
+
+/* FOOTER */
+footer { background: var(--deep); border-top: 1px solid rgba(255,255,255,0.06); padding: 3rem; }
+.footer-inner { max-width: 1080px; margin: 0 auto; display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
+.footer-brand p { font-size: 0.83rem; color: var(--slate); line-height: 1.72; margin-top: 0.75rem; max-width: 240px; }
+.footer-col h4 { font-family: var(--font-ui); font-size: 0.65rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--lime); margin-bottom: 1rem; }
+.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+.footer-col a { font-size: 0.82rem; color: var(--slate-lt); text-decoration: none; transition: color 0.2s; }
+.footer-col a:hover { color: var(--white); }
+.footer-bottom { border-top: 1px solid rgba(255,255,255,0.06); padding-top: 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; max-width: 1080px; margin: 0 auto; }
+.footer-bottom p { font-size: 0.72rem; color: var(--slate); }
+
+/* MOBILE NAV */
+.nav-mobile { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: var(--deep-alt); z-index: 199; flex-direction: column; align-items: center; justify-content: center; gap: 2rem; }
+.nav-mobile.open { display: flex; }
+.nav-mobile a { font-family: var(--font-disp); font-size: 2rem; color: var(--white); text-decoration: none; }
+.nav-mobile a:hover { color: var(--lime); }
+.nav-mobile-close { position: absolute; top: 1.5rem; right: 1.5rem; background: none; border: none; color: var(--white); font-size: 1.5rem; cursor: pointer; }
+
+/* RESPONSIVE */
+@media (max-width: 960px) {
+  nav { padding: 1rem 1.25rem; }
+  nav.scrolled { padding: 0.75rem 1.25rem; }
+  .nav-links { display: none; }
+  .nav-toggle { display: flex; }
+  .hero { padding: 0 1.25rem 4rem; }
+  .hero-sub-row { flex-direction: column; }
+  .offers-grid { grid-template-columns: 1fr; }
+  .offers-grid .offer-card:nth-child(3) { display: block; }
+  .services-grid { grid-template-columns: 1fr 1fr; }
+  .cases-grid { grid-template-columns: 1fr 1fr; }
+  .proof-grid { grid-template-columns: 1fr; }
+  .about-inner { grid-template-columns: 1fr; gap: 3rem; }
+  .about-img-grid { display: grid; grid-template-columns: 1fr 1fr; }
+  .process-steps { grid-template-columns: repeat(3, 1fr); }
+  .footer-inner { grid-template-columns: 1fr 1fr; gap: 2rem; }
+  .offers-section, .services-section, .cases-section, .proof-section, .about-section, .process-section, .cta-section { padding-left: 1.25rem; padding-right: 1.25rem; }
+  footer { padding: 2rem 1.25rem; }
+}
+@media (max-width: 560px) {
+  .services-grid { grid-template-columns: 1fr; }
+  .cases-grid { grid-template-columns: 1fr; }
+  .process-steps { grid-template-columns: 1fr 1fr; }
+  .footer-inner { grid-template-columns: 1fr; }
+  .footer-bottom { flex-direction: column; text-align: center; }
+  .team-row { flex-direction: column; }
+  .cta-btns { flex-direction: column; align-items: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="main-nav">
+  <a href="#" class="logo">
+    <span class="logo-h">h</span><span class="logo-illtop">illtop</span>
+    <span class="logo-ch">creative hub</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#offers">Our Offers</a></li>
+    <li><a href="#services">Services</a></li>
+    
+    <li><a href="#about">About</a></li>
+    <li><a href="/cdn-cgi/l/email-protection#32515341574b725a5b5e5e465d4251405753465b44575a47501c515d5f" class="nav-cta">Let's Talk</a></li>
+  </ul>
+  <button class="nav-toggle" id="nav-toggle" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE NAV -->
+<div class="nav-mobile" id="nav-mobile">
+  <button class="nav-mobile-close" id="nav-close">✕</button>
+  <a href="#offers" onclick="closeMobileNav()">Our Offers</a>
+  <a href="#services" onclick="closeMobileNav()">Services</a>
+  <a href="#about" onclick="closeMobileNav()">About</a>
+  <a href="/cdn-cgi/l/email-protection#ef8c8e9c8a96af878683839b809f8c9d8a8e9b86998a879a8dc18c8082" style="color:var(--lime)">Let's Talk</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-img"></div>
+  <div class="hero-scan"></div>
+
+  <div class="hero-location">Lubbock, TX — West Texas</div>
+  <h1>Your story deserves to be<br><em>amplified</em> — not <span class="hl">buried.</span></h1>
+  <div class="hero-sub-row">
+    <p class="hero-sub">Hilltop Creative Hub is a full-service creative content and marketing agency. We partner with businesses, entrepreneurs, and creators to build brands that <strong>stop the scroll, build trust, and drive real growth.</strong></p>
+  </div>
+  <div class="hero-actions">
+    <a href="/cdn-cgi/l/email-protection#c1a2a0b2a4b881a9a8adadb5aeb1a2b3a4a0b5a8b7a4a9b4a3efa2aeac" class="btn-primary">Schedule a Free Consultation</a>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker-wrap" aria-hidden="true">
+  <div class="ticker-track">
+    <span class="ticker-item">Strategy <span class="ticker-sep">·</span></span>
+    <span class="ticker-item">Branding <span class="ticker-sep">·</span></span>
+    <span class="ticker-item">Video Production <span class="ticker-sep">·</span></span>
+    <span class="ticker-item">Social Media <span class="ticker-sep">·</span></span>
+    <span class="ticker-item">Paid Ads <span class="ticker-sep">·</span></span>
+    <span class="ticker-item">Content Creation <span class="ticker-sep">·</span></span>
+    <span class="ticker-item">Website Design <span class="ticker-sep">·</span></span>
+    <span class="ticker-item">West Texas <span class="ticker-sep">·</span></span>
+    <span class="ticker-item">Strategy <span class="ticker-sep">·</span></span>
+    <span class="ticker-item">Branding <span class="ticker-sep">·</span></span>
+    <span class="ticker-item">Video Production <span class="ticker-sep">·</span></span>
+    <span class="ticker-item">Social Media <span class="ticker-sep">·</span></span>
+    <span class="ticker-item">Paid Ads <span class="ticker-sep">·</span></span>
+    <span class="ticker-item">Content Creation <span class="ticker-sep">·</span></span>
+    <span class="ticker-item">Website Design <span class="ticker-sep">·</span></span>
+    <span class="ticker-item">West Texas <span class="ticker-sep">·</span></span>
+  </div>
+</div>
+
+<!-- CURRENT OFFERS -->
+<section class="offers-section" id="offers">
+  <div class="offers-inner">
+    <div class="eyebrow reveal">Introductory Offers</div>
+    <h2 class="section-title reveal">Ready to grow? <span class="hl">We built this for you.</span></h2>
+    <p class="section-body reveal" style="max-width:540px;">Three focused offers designed to get your brand moving — built for local businesses ready to grow. Limited spots available on introductory packages.</p>
+    <div class="offers-grid reveal">
+      <div class="offer-card">
+        <div class="offer-tag">Jumpstart Package · 3 Months</div>
+        <div class="offer-name">Done-For-You<br>Marketing System</div>
+        <div class="offer-price">$1,500 / month · Content · Social · Ads</div>
+        <div class="offer-desc">Professional content shoot, social media management with 2 posts/week, and full Meta/Instagram ad management — all handled by our team. Built for local service businesses ready to grow.</div>
+        <a href="https://hilltopcreative.github.io/jumpstart/" class="offer-link" target="_blank">View the Jumpstart Package →</a>
+      </div>
+      <div class="offer-card">
+        <div class="offer-tag">Content Day · 3 Months</div>
+        <div class="offer-name">Interview Video<br>Growth Starter</div>
+        <div class="offer-price">$2,000 / month · Video · Reels · Posting</div>
+        <div class="offer-desc">A focused half-day shoot producing months of short-form video content — edited, captioned, and posted for you. For experts, practitioners, and business owners who are ready to be seen.</div>
+        <a href="https://hilltopcreative.github.io/content-day/" class="offer-link" target="_blank">View the Content Day Package →</a>
+      </div>
+      <div class="offer-card">
+        <div class="offer-tag">Managed Web Package · Ongoing</div>
+        <div class="offer-name">Your Website,<br>Fully Managed</div>
+        <div class="offer-price">From $350 / month · No upfront cost</div>
+        <div class="offer-desc">A professionally built website with hosting, security, maintenance, and updates included — all for one flat monthly rate. No build invoice. No tech headaches. Optional Google Business Profile automation for local SEO.</div>
+        <a href="https://hilltopcreative.github.io/managed-web/" class="offer-link" target="_blank">View the Managed Web Package →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services-section" id="services">
+  <div class="services-inner">
+    <div class="eyebrow reveal">What We Do</div>
+    <h2 class="section-title reveal">Full-service creative. <span class="hl">Start to finish.</span></h2>
+    <p class="section-body reveal" style="max-width:520px;">From concept to completion, we handle every piece of your brand's presence — so you can focus on running your business.</p>
+    <div class="services-grid reveal">
+
+      <div class="svc-card">
+        <svg class="svc-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="18" cy="12" r="5"/><path d="M6 30c0-6.627 5.373-12 12-12s12 5.373 12 12"/>
+        </svg>
+        <div class="svc-title">Brand Development</div>
+        <div class="svc-body">From building a brand from scratch to updating an existing one — we define the identity, voice, and strategy that connects your business to the right audience.</div>
+      </div>
+
+      <div class="svc-card">
+        <svg class="svc-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M6 28L14 12l6 10 4-6 6 12"/><circle cx="28" cy="10" r="3"/>
+        </svg>
+        <div class="svc-title">Strategic Marketing</div>
+        <div class="svc-body">Digital and print marketing, social media, paid ad management, email, and business-to-business campaigns — all mapped to your goals and budget.</div>
+      </div>
+
+      <div class="svc-card">
+        <svg class="svc-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="4" y="8" width="28" height="18" rx="2"/><polygon points="15,14 15,22 23,18" fill="currentColor" stroke="none"/>
+        </svg>
+        <div class="svc-title">Content Creation & Video</div>
+        <div class="svc-body">Professional photography, video production, short-form reels, and storytelling content that builds trust and authority with your audience.</div>
+      </div>
+
+      <div class="svc-card">
+        <svg class="svc-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="4" y="6" width="28" height="22" rx="2"/><line x1="4" y1="13" x2="32" y2="13"/><line x1="12" y1="6" x2="12" y2="13"/>
+        </svg>
+        <div class="svc-title">Website Development & SEO</div>
+        <div class="svc-body">Fast, modern, mobile-first websites that rank on Google and convert visitors into customers. From landing pages to full business websites.</div>
+      </div>
+
+      <div class="svc-card">
+        <svg class="svc-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="18" cy="18" r="12"/><path d="M14 13l8 5-8 5V13z" fill="currentColor" stroke="none"/>
+        </svg>
+        <div class="svc-title">Marketing & Ad Execution</div>
+        <div class="svc-body">Precision-targeted ad campaigns across Meta, Instagram, and Google — built, managed, and optimized to turn visibility into measurable growth.</div>
+      </div>
+
+      <div class="svc-card">
+        <svg class="svc-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="5" y="5" width="10" height="14" rx="1"/><rect x="21" y="5" width="10" height="8" rx="1"/><rect x="21" y="19" width="10" height="12" rx="1"/><rect x="5" y="25" width="10" height="6" rx="1"/>
+        </svg>
+        <div class="svc-title">Print & Digital Design</div>
+        <div class="svc-body">From brochures and booklets to social graphics and digital campaigns — custom design that spreads brand awareness and tells your story clearly.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="proof-section">
+  <div class="proof-inner">
+    <div class="eyebrow reveal">What Clients Say</div>
+    <h2 class="section-title reveal">The results <span class="hl">speak for themselves.</span></h2>
+    <div class="proof-grid reveal">
+      <div class="proof-card">
+        <div class="q-mark">"</div>
+        <p class="proof-text">The You Have A Story Campaign has saturated West Texas with churches who have remained in the United Methodist Connection.</p>
+        <div class="proof-name">Dave Andersen</div>
+        <div class="proof-co">CFO, Northwest Texas Conference</div>
+      </div>
+      <div class="proof-card">
+        <div class="q-mark">"</div>
+        <p class="proof-text">We have used Hilltop's expertise on several crucial projects. I have been completely amazed at the unique ability to clearly envision the end product then construct the pathway to make the project a success.</p>
+        <div class="proof-name">Jeff Fisher</div>
+        <div class="proof-co">Grace Lubbock</div>
+      </div>
+      <div class="proof-card">
+        <div class="q-mark">"</div>
+        <p class="proof-text">Thanks for all your help. This has me really fired up to see this come together!</p>
+        <div class="proof-name">Joe Hughes</div>
+        <div class="proof-co">Founder, Hughes Baseball Consulting</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about-section" id="about">
+  <div class="about-inner">
+    <div class="about-img-grid reveal">
+      <img class="about-img tall" src="https://images.squarespace-cdn.com/content/v1/66fb31e78336940e948284f6/12bdd4b4-f8ad-4001-9ddf-e13a93a187e6/500074903_693683706751306_2924321192082276144_n.jpg" alt="Hilltop Creative Hub team" loading="lazy">
+      <img class="about-img" src="https://images.squarespace-cdn.com/content/v1/66fb31e78336940e948284f6/ce20b2a8-cfc5-494a-af7b-3b4242a8f09c/498712619_17957158286949535_6673335032864274915_n.jpg" alt="Hilltop Creative Hub" loading="lazy">
+      <img class="about-img" src="https://images.squarespace-cdn.com/content/v1/66fb31e78336940e948284f6/487844147_17970248624844678_6539647680596429696_n.jpg" alt="Hilltop team at work" loading="lazy">
+    </div>
+    <div class="reveal rd2">
+      <div class="eyebrow-dark">About Hilltop</div>
+      <h2 class="section-title-dark">Built in West Texas.<br><em>Built for your brand.</em></h2>
+      <p class="about-body">Hilltop Creative Hub is a creative content and marketing agency based in Lubbock, TX. Our commitment to delivering a seamless end-to-end experience sets us apart — along with high-end, engaging creative content that actually connects.</p>
+      <p class="about-body">Our turnkey approach lets clients focus on their core business while we handle everything from creative production to strategic marketing. Whether building a dynamic brand or managing a comprehensive digital campaign, we are the go-to partner for outstanding results.</p>
+      <ul class="value-list">
+        <li><span class="v-dot"></span><div><strong>Excellence</strong> — High-quality services, exceeding expectations, cutting-edge creative strategies.</div></li>
+        <li><span class="v-dot"></span><div><strong>Integrity</strong> — Transparency, honesty, and ethical business practices in every partnership.</div></li>
+        <li><span class="v-dot"></span><div><strong>Collaboration</strong> — Close partnerships with clients and our team that lead to mutual success.</div></li>
+      </ul>
+      <div class="team-row">
+        <div class="team-member">
+          <img class="team-photo" src="https://images.squarespace-cdn.com/content/v1/66fb31e78336940e948284f6/c403489e-c027-4863-ba78-a9e118070649/IMG_5346.jpg" alt="Aric & Casey Lampert">
+          <div>
+            <div class="team-name">Aric & Casey Lampert</div>
+            <div class="team-role">Founders</div>
+          </div>
+        </div>
+        <div class="team-member">
+          <img class="team-photo" src="https://images.squarespace-cdn.com/content/v1/66fb31e78336940e948284f6/bc9860de-b594-4a91-868e-86a00685ec4c/IMG_1394.png" alt="Jaime Montgomery">
+          <div>
+            <div class="team-name">Jaime Montgomery</div>
+            <div class="team-role">Chief Operating Officer</div>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:2rem;">
+        <a href="/cdn-cgi/l/email-protection#bfdcdeccdac6ffd7d6d3d3cbd0cfdccddadecbd6c9dad7cadd91dcd0d2" class="btn-dark">Work With Us →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process-section">
+  <div class="process-inner">
+    <div class="eyebrow reveal" style="justify-content:center;">Our Process</div>
+    <h2 class="section-title reveal" style="text-align:center;">How we go from <span class="hl">idea to impact.</span></h2>
+    <div class="process-steps reveal">
+      <div class="proc-step"><div class="proc-num">01</div><div class="proc-title">Discovery</div></div>
+      <div class="proc-step"><div class="proc-num">02</div><div class="proc-title">Research</div></div>
+      <div class="proc-step"><div class="proc-num">03</div><div class="proc-title">Positioning & Messaging</div></div>
+      <div class="proc-step"><div class="proc-num">04</div><div class="proc-title">Strategy Review</div></div>
+      <div class="proc-step"><div class="proc-num">05</div><div class="proc-title">Marketing Plan</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="eyebrow" style="justify-content:center;margin-bottom:1.2rem;">Get Started</div>
+  <h2 class="cta-title">Ready to amplify<br><em>your brand?</em></h2>
+  <p class="cta-sub">Schedule a free 30-minute consultation. No pressure, no pitch — just a real conversation about what your brand needs and where you want to go.</p>
+  <div class="cta-btns">
+    <a href="/cdn-cgi/l/email-protection#0162607264784169686d6d756e7162736460756877646974632f626e6c3e7274636b6462753c456872626e7764737824333142606d6d" class="btn-primary">Schedule a Free Consultation</a>
+    <a href="https://hilltopcreative.github.io/jumpstart/" target="_blank" class="btn-outline">View Jumpstart Package</a>
+    <a href="https://hilltopcreative.github.io/content-day/" target="_blank" class="btn-outline">View Content Day</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="#" class="logo" style="margin-bottom:0.75rem;display:inline-flex;">
+        <span class="logo-h">h</span><span class="logo-illtop">illtop</span>
+        <span class="logo-ch">creative hub</span>
+      </a>
+      <p>Creative content and marketing agency based in Lubbock, TX. Strategy, branding, video, social, ads, and websites — all under one roof.</p>
+      <p style="margin-top:0.75rem;">7008 Salem Suite 114<br>Lubbock, TX 79424</p>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#services">Brand Development</a></li>
+        <li><a href="#services">Strategic Marketing</a></li>
+        <li><a href="#services">Content & Video</a></li>
+        <li><a href="#services">Website & SEO</a></li>
+        <li><a href="#services">Paid Ads</a></li>
+        <li><a href="#services">Print & Digital Design</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Offers</h4>
+      <ul>
+        <li><a href="https://hilltopcreative.github.io/jumpstart/" target="_blank">Jumpstart Package</a></li>
+        <li><a href="https://hilltopcreative.github.io/content-day/" target="_blank">Content Day</a></li>
+        <li><a href="https://hilltopcreative.github.io/managed-web/" target="_blank">Managed Web Package</a></li>
+        <li><a href="https://hilltopcreative.github.io/intake/" target="_blank">Client Intake Form</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="/cdn-cgi/l/email-protection#2d4e4c5e48546d4544414159425d4e5f484c59445b4845584f034e4240"><span class="__cf_email__" data-cfemail="53303220362a133b3a3f3f273c2330213632273a25363b26317d303c3e">[email&#160;protected]</span></a></li>
+        <li><a href="#about">About the Team</a></li>
+        <li><a href="/cdn-cgi/l/email-protection#02616371677b426a6b6e6e766d7261706763766b74676a77602c616d6f3d717760686761763f466b71616d7467707b27303241636e6e">Book a Consultation</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Hilltop Creative Hub · All rights reserved · Lubbock, TX</p>
+    <p>Marketing, Media & Branding in West Texas</p>
+  </div>
+</footer>
+
+<script>
+  // Nav scroll
+  window.addEventListener('scroll', () => {
+    document.getElementById('main-nav').classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  // Mobile nav
+  document.getElementById('nav-toggle').addEventListener('click', () => {
+    document.getElementById('nav-mobile').classList.add('open');
+  });
+  document.getElementById('nav-close').addEventListener('click', closeMobileNav);
+  function closeMobileNav() {
+    document.getElementById('nav-mobile').classList.remove('open');
+  }
+
+  // Scroll reveal
+  document.body.classList.add('js-loaded');
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+  }, { threshold: 0.07, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
